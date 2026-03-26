@@ -1,0 +1,335 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --background: #f9fafb;
+  --foreground: #4b5563;
+  --card: #ffffff;
+  --card-foreground: #4b5563;
+  --popover: #ffffff;
+  --popover-foreground: #4b5563;
+  --primary: #50bfa0;
+  --primary-foreground: #ffffff;
+  --secondary: #f97316;
+  --secondary-foreground: #ffffff;
+  --muted: #f9fafb;
+  --muted-foreground: #4b5563;
+  --accent: #f97316;
+  --accent-foreground: #ffffff;
+  --destructive: #dc2626;
+  --destructive-foreground: #ffffff;
+  --border: #e5e7eb;
+  --input: #ffffff;
+  --ring: rgba(80, 191, 160, 0.5);
+  --chart-1: #50bfa0;
+  --chart-2: #f97316;
+  --chart-3: #4b5563;
+  --chart-4: #ffffff;
+  --chart-5: #f9fafb;
+  --radius: 1rem;
+  --sidebar: #ffffff;
+  --sidebar-foreground: #4b5563;
+  --sidebar-primary: #50bfa0;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #f97316;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #e5e7eb;
+  --sidebar-ring: rgba(80, 191, 160, 0.5);
+}
+
+.dark {
+  --background: #0f172a;
+  --foreground: #f1f5f9;
+  --card: #1e293b;
+  --card-foreground: #f1f5f9;
+  --popover: #1e293b;
+  --popover-foreground: #f1f5f9;
+  --primary: #50bfa0;
+  --primary-foreground: #ffffff;
+  --secondary: #f97316;
+  --secondary-foreground: #ffffff;
+  --muted: #1e293b;
+  --muted-foreground: #94a3b8;
+  --accent: #f97316;
+  --accent-foreground: #ffffff;
+  --destructive: #dc2626;
+  --destructive-foreground: #ffffff;
+  --border: #334155;
+  --input: #1e293b;
+  --ring: rgba(80, 191, 160, 0.5);
+  --chart-1: #50bfa0;
+  --chart-2: #f97316;
+  --chart-3: #4b5563;
+  --chart-4: #ffffff;
+  --chart-5: #f9fafb;
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@theme inline {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    /* Removed border and outline from all elements to eliminate visible div contours */
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+
+  /* Updated color tokens to match new design brief */
+  .text-white {
+    color: #ffffff !important;
+  }
+
+  .text-gray-200 {
+    color: #e5e7eb !important;
+  }
+
+  .text-gray-300 {
+    color: #d1d5db !important;
+  }
+
+  .bg-primary {
+    background-color: #50bfa0 !important;
+  }
+
+  .text-primary-foreground {
+    color: #ffffff !important;
+  }
+
+  button[data-slot="button"]:not([class*="variant-"]),
+  button[data-slot="button"][class*="bg-primary"] {
+    background-color: #50bfa0 !important;
+    color: #ffffff !important;
+  }
+
+  button[data-slot="button"]:not([class*="variant-"]):hover,
+  button[data-slot="button"][class*="bg-primary"]:hover {
+    background-color: #3d9970 !important;
+    color: #ffffff !important;
+  }
+
+  button:not(.pagination-button):not(.eye-toggle-button):not(.cancel-button) {
+    background-color: #50bfa0 !important;
+    color: #ffffff !important;
+    border: none !important;
+  }
+
+  .eye-toggle-button {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+  }
+
+  button[style*="background-color: #ffffff"] {
+    background-color: #ffffff !important;
+    color: #111827 !important;
+    border: 1px solid #d1d5db !important;
+  }
+}
+
+/* Added custom animations for login screen */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce {
+  0%,
+  20%,
+  53%,
+  80%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  40%,
+  43% {
+    transform: translate3d(0, -8px, 0);
+  }
+  70% {
+    transform: translate3d(0, -4px, 0);
+  }
+  90% {
+    transform: translate3d(0, -2px, 0);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.animate-bounce-hover:hover {
+  animation: bounce 0.6s ease-in-out;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Utilidades para truncar texto */
+.line-clamp-1 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+
+.line-clamp-2 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.line-clamp-3 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+/* Loader styles */
+.loader {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f4f6;
+  border-top: 4px solid #50bfa0;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Estilos para botones de paginación */
+.pagination-button {
+  background-color: #50bfa0 !important;
+  color: #ffffff !important;
+  border: none !important;
+}
+
+.pagination-button:hover {
+  background-color: #3d9970 !important;
+  color: #ffffff !important;
+}
+
+.pagination-button.pagination-current {
+  background-color: #f97316 !important;
+  color: #ffffff !important;
+}
+
+.pagination-button.pagination-current:hover {
+  background-color: #e55a00 !important;
+  color: #ffffff !important;
+}
+
+/* Utility: only change text/icon color to secondary on hover (useful for link-only items) */
+.hover-secondary {
+  transition: color 150ms ease-in-out;
+}
+.hover-secondary:hover {
+  color: var(--secondary) !important;
+  background-color: transparent !important;
+}
+
+/* Botón específico para "Cancelar" en checkout */
+.cancel-button {
+  background-color: #fee2e2 !important; /* rojo muy claro */
+  color: #b91c1c !important;            /* texto rojo */
+  border: 1px solid #fecaca !important;
+  cursor: pointer;
+}
+
+.cancel-button:hover:not(:disabled) {
+  background-color: #fecaca !important; /* un poco más oscuro al pasar el mouse */
+}
+
+.cancel-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Ocultar scrollbar pero mantener funcionalidad de scroll */
+.overflow-x-auto::-webkit-scrollbar {
+  display: none;
+}
+
+/* Clase para ocultar scrollbar en carruseles */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;  /* Chrome, Safari and Opera */
+}
