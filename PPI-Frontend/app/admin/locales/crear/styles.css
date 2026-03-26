@@ -1,0 +1,8 @@
+/* Estilos personalizados para el componente Switch */
+.switch-custom-inactive {
+  @apply bg-gray-300 hover:bg-gray-400;
+}
+
+.switch-custom-inactive span {
+  @apply bg-white;
+}
