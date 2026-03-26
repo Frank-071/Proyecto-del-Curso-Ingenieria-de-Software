@@ -1,1 +1,0 @@
-export { mockEventos } from './mockEventos'
